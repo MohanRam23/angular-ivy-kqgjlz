@@ -1,0 +1,38 @@
+<hello
+  [name]="studentName"
+  (resc)="selectedAudience($event)"
+  [arraySam]="array"
+></hello>
+<div>
+  <ng-container *ngFor="let i of studentName; let idx = last">
+    <ng-container *ngIf="idx == true; else elsePar">
+      <ul>
+        <li>{{ i }}</li>
+      </ul>
+    </ng-container>
+
+    <ng-template #elsePar> hel </ng-template>
+  </ng-container>
+</div>
+<ng-container *ngFor="let college of resultEmit">
+  {{ college.name }}
+</ng-container>
+{{ (obj.name.substring(0, 1) | uppercase) + obj.name.substring(1) }}
+{{ dateForm | date | uppercase }}
+<p>Start editing to see some magic happen :)</p>
+
+<input type="text" [(ngModel)]="data" />
+<div [ngSwitch]="data">
+  <div *ngSwitchCase="'1'">One</div>
+  <div *ngSwitchCase="'2'">Two</div>
+  <div *ngSwitchCase="'3'">Three</div>
+  <div *ngSwitchCase="'4'">Four</div>
+  <div *ngSwitchCase="'5'">Five</div>
+  <div *ngSwitchDefault>This is Default</div>
+</div>
+<form [formGroup]="sampleForm" (ngSubmit)="submitForm()">
+  <input type="text" formControlName="firstName" id="firstName" />
+  <input type="text" formControlName="lastName" id="firstName" />
+  <input type="text" formControlName="email" id="firstName" />
+  <input type="submit" value="Submit" />
+</form>
